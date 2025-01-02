@@ -16,6 +16,9 @@
         <maven.compiler.target>11</maven.compiler.target>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
         <selenium.version>3.141.59</selenium.version>
+        <spring.version>5.3.18</spring.version>
+        <thymeleaf.version>3.0.15.RELEASE</thymeleaf.version>
+        <spring.boot.version>2.5.4</spring.boot.version>
     </properties>
 
     <dependencies>
@@ -38,6 +41,43 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- Spring Boot Starter Web Dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- Spring Boot Starter Thymeleaf Dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- Spring Boot Starter Security Dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- Spring Boot Starter Test Dependency (For testing purposes) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JaCoCo Dependency for Code Coverage -->
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>org.jacoco.agent</artifactId>
+            <version>0.8.10</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -87,6 +127,13 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
             </plugin>
         </plugins>
     </build>
