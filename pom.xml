@@ -107,14 +107,16 @@
             <version>0.8.10</version>
             <executions>
                 <execution>
-                    <!-- Ensure that JaCoCo runs during the test phase -->
+                    <!-- Unique execution ID for preparing the agent -->
+                    <id>prepare-agent</id>
                     <phase>test</phase>
                     <goals>
                         <goal>prepare-agent</goal>
                     </goals>
                 </execution>
                 <execution>
-                    <!-- Generate the report after tests have executed -->
+                    <!-- Unique execution ID for generating the report -->
+                    <id>generate-report</id>
                     <phase>verify</phase>
                     <goals>
                         <goal>report</goal>
