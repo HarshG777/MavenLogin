@@ -16,36 +16,9 @@
         <maven.compiler.target>11</maven.compiler.target>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
         <selenium.version>3.141.59</selenium.version>
-        <spring.boot.version>2.6.3</spring.boot.version> <!-- Add Spring Boot version -->
     </properties>
 
     <dependencies>
-        <!-- Spring Boot Dependencies with Version -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version> <!-- Add version -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>${spring.boot.version}</version> <!-- Add version -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-            <version>${spring.boot.version}</version> <!-- Add version -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring.boot.version}</version> <!-- Add version -->
-            <scope>test</scope>
-        </dependency>
-
         <!-- JUnit 5 Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -70,14 +43,7 @@
 
     <build>
         <plugins>
-            <!-- Spring Boot Maven Plugin with Version -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring.boot.version}</version> <!-- Add version -->
-            </plugin>
-
-            <!-- Compiler Plugin to ensure Java 11 compatibility -->
+            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -88,7 +54,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Surefire Plugin for JUnit Test Execution -->
+            <!-- Surefire Plugin for Running Tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -102,29 +68,26 @@
 
             <!-- JaCoCo Maven Plugin for Code Coverage -->
             <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.10</version>
-            <executions>
-                <execution>
-                    <!-- Unique execution ID for preparing the agent -->
-                    <id>prepare-agent</id>
-                    <phase>test</phase>
-                    <goals>
-                        <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <!-- Unique execution ID for generating the report -->
-                    <id>generate-report</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
 </project>
