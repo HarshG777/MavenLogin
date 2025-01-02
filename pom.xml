@@ -108,26 +108,19 @@
 
             <!-- JaCoCo Maven Plugin for Code Coverage -->
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version>
-                <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>generate-report</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.10</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <!-- Code coverage during test phase -->
+                        <goal>prepare-agent</goal>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 
             <!-- Spring Boot Maven Plugin -->
             <plugin>
